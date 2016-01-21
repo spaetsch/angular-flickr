@@ -1,13 +1,13 @@
 
-<div ng-repeat="dog in dogs | filter: filterDogs">
+<div ng-repeat="pic in pics">  <!-- | filter: filterDogs -->
   <div class="col-md-3">
       <div ng-click="$parent.current = $index" data-toggle="modal" data-target="#myModal"class="dog-card overlay">
         <a href="http://www.google.com">
-<!--         <img src="{{dog.bigImage}}">
- -->      </a>
+        <img src="{{pic.picURL}}">
+      </a>
         <div class="dog-caption">
-          <p class="dog-name">{{dog.name}}</p>
-          <p class="dog-owner-loc">{{dog.owner}} - {{dog.city}}</p>
+          <p class="dog-name">{{pic.title}}</p>
+          <p class="dog-owner-loc">photographer</p>
         </div>
       </div>
   </div>
@@ -19,13 +19,14 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal"></button>
-        <p class="modal-title dog-modal-title dog-name" id="myModalLabel">{{dogs[current].name}}</p>
-        <p class="modal-title dog-modal-title dog-owner-loc">{{dogs[current].owner}} - {{dogs[current].city}}</p>
+        <p class="modal-title dog-modal-title dog-name" id="myModalLabel">{{pics[current].title}}</p>
+        <p class="modal-title dog-modal-title dog-owner-loc">current is {{current}}</p>
       </div>
       <div class="modal-body dog-modal-body">
-<!--         <img src="{{dogs[current].bigImage}}">
- -->      </div>
+        <img src="{{pics[current].picURL}}">
+      </div>
       <div class="modal-footer">
+        <p><a href="{{pics[current].picURL}}">link</a></p>
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
