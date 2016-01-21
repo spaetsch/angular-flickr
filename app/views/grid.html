@@ -3,8 +3,8 @@
   <div class="col-md-3">
       <div ng-click="$parent.current = $index" data-toggle="modal" data-target="#myModal"class="dog-card overlay">
         <a href="http://www.google.com">
-        <img src="{{dog.bigImage}}">
-      </a>
+<!--         <img src="{{dog.bigImage}}">
+ -->      </a>
         <div class="dog-caption">
           <p class="dog-name">{{dog.name}}</p>
           <p class="dog-owner-loc">{{dog.owner}} - {{dog.city}}</p>
@@ -23,8 +23,8 @@
         <p class="modal-title dog-modal-title dog-owner-loc">{{dogs[current].owner}} - {{dogs[current].city}}</p>
       </div>
       <div class="modal-body dog-modal-body">
-        <img src="{{dogs[current].bigImage}}">
-      </div>
+<!--         <img src="{{dogs[current].bigImage}}">
+ -->      </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
