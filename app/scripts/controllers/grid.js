@@ -18,29 +18,40 @@ angular.module('intFlickApp')
       'AngularJS',
       'Karma'
     ];
-    // $scope.buildPhotoLink = function(data, next){
+    $scope.buildPhotoLink = function(data, next){
 
-    //   var farm = data.photos.photo[next].farm;
-    //   var server = data.photos.photo[next].server;
-    //   var id = data.photos.photo[next].id;
-    //   var secret = data.photos.photo[next].secret;
+      var farm = data.photos.photo[next].farm;
+      var server = data.photos.photo[next].server;
+      var id = data.photos.photo[next].id;
+      var secret = data.photos.photo[next].secret;
 
-    //   //assemble the parts into a complete URL for the photo
-    //   var photoURL = 'https://farm' + farm + '.staticflickr.com/' + server + '/' + id + '_' + secret + '_z.jpg';  //underscore letter signals size of resultb
-    //   // z medium 640, 640 on longest side
-    //   // c medium 800, 800 on longest side
-    //   // b large, 1024 on longest side
-    //   // h large 1600, 1600 on longest side
+      //assemble the parts into a complete URL for the photo
+      var photoURL = 'https://farm' + farm + '.staticflickr.com/' + server + '/' + id + '_' + secret + '_z.jpg';  //underscore letter signals size of resultb
+      // z medium 640, 640 on longest side
+      // c medium 800, 800 on longest side
+      // b large, 1024 on longest side
+      // h large 1600, 1600 on longest side
 
-    //   return photoURL;
-    // };
+      return photoURL;
+    };
 
     //GET call using promises instead of callbacks
     $http({ method: 'GET', url: testURL})
       //success
-      .then(function(data) {
-        $scope.data = data;
-        console.log(data);
+      .then(function(response) {
+        console.log(response.data);
+        $scope.pics = response.data.photos.photo;
+
+        console.log('$scope.pics', $scope.pics);
+        //adds image URL to array
+        for (var i=0; i < response.data.photos.photo.length; i++){
+          $scope.pics[i].picURL = $scope.buildPhotoLink(response.data, i);
+          console.log('inside for loop');
+          console.log('$scope.buildPhotoLink(response.data, i)', $scope.buildPhotoLink(response.data, i));
+
+        }
+        console.log('after for loop', response.data);
+
       },
       //error
       function() {
