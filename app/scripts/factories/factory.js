@@ -41,11 +41,26 @@ app.factory('myFactory', function($http){
         for (var i=0; i < response.data.photos.photo.length; i++){
           this.pics[i].picURL = this.buildPhotoLink(response.data, i);
         }
+        return this.pics;
+
       },
       //error
       function() {
         console.log('error');
       });
+  };
+
+  service.successFlickr = function(response){
+    this.pics = response.data.photos.photo;
+console.log('this.pics', this.pics);
+    //console.log('$scope.pics', $scope.pics);
+    //adds image URL to array
+    for (var i=0; i < response.data.photos.photo.length; i++){
+      this.pics[i].picURL = this.buildURL(response.data, i);
+      console.log('in for loop success flickr');
+
+    }
+    return this.pics;
   };
 
 

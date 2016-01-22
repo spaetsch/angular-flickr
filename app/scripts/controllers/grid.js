@@ -7,8 +7,8 @@
  * # GridCtrl
  * Controller of the intFlickApp
  */
-//var APIkey = '&api_key=fa3e0832f30851339c73d3dd3c27f961';
-//var testURL = 'https://api.flickr.com/services/rest/?method=flickr.interestingness.getList&api_key=7cd4e1a19694735a54aa19dd860e5855&date=2016-01-01&per_page=25&page=1&format=json&nojsoncallback=1'+ APIkey;
+var APIkey = '&api_key=fa3e0832f30851339c73d3dd3c27f961';
+var testURL = 'https://api.flickr.com/services/rest/?method=flickr.interestingness.getList&api_key=7cd4e1a19694735a54aa19dd860e5855&date=2016-01-01&per_page=25&page=1&format=json&nojsoncallback=1'+ APIkey;
 
 angular.module('intFlickApp')
   .controller('GridCtrl', function ($scope, $http, myFactory) {
@@ -36,27 +36,25 @@ angular.module('intFlickApp')
       //reference factory instead
       return myFactory.buildURL(data, next);
     };
-    $scope.getPics = function(){
-      console.log('in get pics');
-      myFactory.callFlickr();
-    };
-    //GET call using promises instead of callbacks
-    // $http({ method: 'GET', url: testURL})
-    //   //success
-    //   .then(function(response) {
-    //     //console.log(response.data);
-    //     $scope.pics = response.data.photos.photo;
+    // $scope.getPics = function(){
+    //   console.log('in get pics');
+    //   $scope.pics = myFactory.callFlickr();
+    //   console.log('$scope.pics', $scope.pics);
 
-    //     //console.log('$scope.pics', $scope.pics);
-    //     //adds image URL to array
-    //     for (var i=0; i < response.data.photos.photo.length; i++){
-    //       $scope.pics[i].picURL = $scope.buildPhotoLink(response.data, i);
-    //     }
-    //   },
-    //   //error
-    //   function() {
-    //     console.log('error');
-    //   });
+    // };
+
+    // just factory the promise functions?
+    //GET call using promises instead of callbacks
+    $http({ method: 'GET', url: testURL})
+      //success
+      .then(function(response) {
+        console.log('modified get then in grid');
+        $scope.pics=myFactory.successFlickr(response);
+      },
+      //error
+      function() {
+        console.log('error');
+      });
 
     // $scope.filterPics  = function(pic){
     //   var regSrch = new RegExp($scope.searchTerm, 'i');
