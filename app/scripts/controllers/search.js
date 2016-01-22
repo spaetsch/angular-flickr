@@ -9,7 +9,7 @@
  */
 
  angular.module('intFlickApp')
-  .controller('SearchCtrl', function ($scope) {
+  .controller('SearchCtrl', function ($scope, $http, myFactory) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -45,5 +45,23 @@
       var requestURL = baseURL + searchDate + format;
       console.log('requestURL', requestURL);
 
+      //GET call using promises instead of callbacks
+      $http({ method: 'GET', url: requestURL})
+        //success
+        .then(function(response) {
+          console.log('in http success in searchjs');
+          $scope.pics = myFactory.successFlickr(response);
+          console.log($scope.pics);
+        },
+        //error
+        function() {
+          console.log('error');
+        });
+
+
     };
+
+
+
+
   });
