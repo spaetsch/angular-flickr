@@ -17,10 +17,12 @@
   </head>
   <body ng-app="intFlickApp">
     <header class="fluid-container">
-      <div class="container">
+      <div class="container" ng-controller="SearchCtrl">
         <div class="col-md-6">
-         <!--  <img src="images/logo.png"> -->
-          <input type="text" class="form-control search-text" ng-model="searchTerm" placeholder="Search pics...">
+            <label for="exampleInput">View the most interesting photos on any given date since 2000</label>
+            <input type="date" id="exampleInput" name="input" ng-model="date.value" ng-change="updatePics()" min="2000-01-01" required />
+            <p>value = {{date.value | date: "yyyy-MM-dd"}}</p>
+
         </div>
         <div class="col-md-3 col-md-offset-3">
           <a class="btn btn-default glyphicon glyphicon-th-list" href="#/list" role="button" title="list view"></a>
@@ -48,6 +50,8 @@
 
         <script src="scripts/app.js"></script>
         <script src="scripts/factories/factory.js"></script>
+        <script src="scripts/controllers/search.js"></script>
+
         <script src="scripts/controllers/grid.js"></script>
         <script src="scripts/controllers/list.js"></script>
 

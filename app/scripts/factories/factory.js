@@ -6,7 +6,22 @@ angular.module('myFactory',[]);
 app.factory('myFactory', function(){
   var service = {};
 
-  service.buildURL = function(data, next){
+  service.buildSearchURL = function(searchDate){
+    var baseURL = 'https://api.flickr.com/services/rest/?method=flickr.interestingness.getList&api_key=8f17ffef253a96b1b922e28c52672280';
+    var date = '&date=' + searchDate;
+    var format = '&per_page=24&format=json&nojsoncallback=1';
+
+    return baseURL + date + format;
+  };
+
+  service.searchPics = function(searchDate){
+    var newPics = this.buildSearchURL(searchDate);
+    console.log(newPics);
+  };
+
+
+
+  service.buildPicURL = function(data, next){
     var farm = data.photos.photo[next].farm;
     var server = data.photos.photo[next].server;
     var id = data.photos.photo[next].id;
@@ -25,7 +40,7 @@ app.factory('myFactory', function(){
     this.pics = response.data.photos.photo;
     //adds image URL to array
     for (var i=0; i < response.data.photos.photo.length; i++){
-      this.pics[i].picURL = this.buildURL(response.data, i);
+      this.pics[i].picURL = this.buildPicURL(response.data, i);
     }
     return this.pics;
   };

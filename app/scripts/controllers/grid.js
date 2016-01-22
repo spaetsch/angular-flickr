@@ -9,7 +9,7 @@
  */
 
 var APIkey = '&api_key=fa3e0832f30851339c73d3dd3c27f961';
-var testURL = 'https://api.flickr.com/services/rest/?method=flickr.interestingness.getList&api_key=7cd4e1a19694735a54aa19dd860e5855&date=2016-01-01&per_page=25&page=1&format=json&nojsoncallback=1'+ APIkey;
+var testURL = 'https://api.flickr.com/services/rest/?method=flickr.interestingness.getList&api_key=7cd4e1a19694735a54aa19dd860e5855&date=2016-01-01&per_page=24&page=1&format=json&nojsoncallback=1'+ APIkey;
 
 angular.module('intFlickApp')
   .controller('GridCtrl', function ($scope, $http, myFactory) {
@@ -28,6 +28,9 @@ angular.module('intFlickApp')
       function() {
         console.log('error');
       });
+
+
+
 
     // $scope.filterPics  = function(pic){
     //   var regSrch = new RegExp($scope.searchTerm, 'i');
