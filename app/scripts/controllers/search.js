@@ -17,7 +17,7 @@
     ];
 
     $scope.date = {
-     value: new Date(2016, 1, 1)
+      value: new Date(2015, 10, 14)
     };
 
     $scope.updatePics = function(){
