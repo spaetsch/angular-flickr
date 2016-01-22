@@ -22,7 +22,10 @@ app.factory('myFactory', function(){
   };
 
   service.successFlickr = function(response){
+    console.log('in service successFlickr');
+    console.log('response.data', response.data);
     this.pics = response.data.photos.photo;
+    console.log('this.pics', this.pics);
     //adds image URL to array
     for (var i=0; i < response.data.photos.photo.length; i++){
       this.pics[i].picURL = this.buildPicURL(response.data, i);

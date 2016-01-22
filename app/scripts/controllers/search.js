@@ -38,7 +38,7 @@
     };
 
     $scope.updatePics = function(){
-      var baseURL = 'https://api.flickr.com/services/rest/?method=flickr.interestingness.getList&api_key=8f17ffef253a96b1b922e28c52672280';
+      var baseURL = 'https://api.flickr.com/services/rest/?method=flickr.interestingness.getList&api_key=c122c5b37d7f44cecd205b35066fd584';
       var searchDate = '&date=' + this.convertDate();
       var format = '&per_page=24&format=json&nojsoncallback=1';
 
@@ -51,7 +51,7 @@
         .then(function(response) {
           console.log('in http success in searchjs');
           $scope.pics = myFactory.successFlickr(response);
-          console.log($scope.pics);
+          console.log('$scope.pics', $scope.pics);
         },
         //error
         function() {
