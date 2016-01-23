@@ -40,7 +40,7 @@ angular.module('intFlickApp')
       }
     });
   })
-   .directive('ngModal', function() {
+   .directive('ngGridModal', function() {
     return {
       templateUrl: 'views/modal.html'
     };

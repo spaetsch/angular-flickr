@@ -34,12 +34,10 @@ angular.module('intFlickApp')
     $scope.pics = myFactory.pics;
 
     $scope.$watch('myFactory.pics', function (newVal, oldVal, scope) {
-
       if (newVal) {
         scope.pics = newVal;
       }
     });
-    console.log('end of ListCtrl, scope pics:', $scope.pics);
   })
   .directive('ngListModal', function() {
     return {

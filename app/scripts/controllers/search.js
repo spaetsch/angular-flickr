@@ -43,13 +43,11 @@
       var format = '&extras=owner_name%2C+url_z&per_page=24&format=json&nojsoncallback=1';
 
       var requestURL = baseURL + searchDate + format;
-      console.log('in getPics, requestURL:', requestURL);
 
       //GET call using promises
       $http({ method: 'GET', url: requestURL})
         //success
         .then(function(response) {
-          console.log('in getPics success, response:', response);
           $scope.pics = myFactory.successFlickr(response);
           myFactory.pics = $scope.pics;
         },
