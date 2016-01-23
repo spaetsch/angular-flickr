@@ -40,7 +40,7 @@
     $scope.getPics = function(){
       var baseURL = 'https://api.flickr.com/services/rest/?method=flickr.interestingness.getList&api_key=c122c5b37d7f44cecd205b35066fd584';
       var searchDate = '&date=' + this.convertDate();
-      var format = '&per_page=24&format=json&nojsoncallback=1';
+      var format = '&extras=owner_name%2C+url_z&per_page=24&format=json&nojsoncallback=1';
 
       var requestURL = baseURL + searchDate + format;
       console.log('in getPics, requestURL:', requestURL);
@@ -49,6 +49,7 @@
       $http({ method: 'GET', url: requestURL})
         //success
         .then(function(response) {
+          console.log('in getPics success, response:', response);
           $scope.pics = myFactory.successFlickr(response);
           myFactory.pics = $scope.pics;
         },

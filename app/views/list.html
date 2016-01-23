@@ -16,15 +16,15 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal"></button>
-        <p class="modal-title dog-modal-title dog-name" id="myModalLabel">{{dogs[current].name}}</p>
-        <p class="modal-title dog-modal-title dog-owner-loc">{{dogs[current].owner}} - {{dogs[current].city}}</p>
+        <p class="modal-title dog-modal-title dog-name" id="myModalLabel">{{pics[current].title}}</p>
+        <p class="modal-title dog-modal-title dog-owner-loc">current is {{current}}</p>
       </div>
       <div class="modal-body dog-modal-body">
-<!--         <img src="{{dogs[current].bigImage}}">
- -->      </div>
+        <img src="{{pics[current].picURL}}">
+      </div>
       <div class="modal-footer">
+        <p><a href="{{pics[current].picURL}}">link</a></p>
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
-</div>
