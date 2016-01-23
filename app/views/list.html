@@ -1,14 +1,15 @@
 <div class="dog-list"  ng-repeat="pic in pics">
   <div ng-click="$parent.current = $index" data-toggle="modal" data-target="#myModal"class="row">
     <div class="col-sm-2">
-      <img src="{{pic.picURL}}">
+      <img src="{{pic.url_z}}">
     </div>
     <div class="col-sm-3">
       <p class="dog-name">{{pic.title}}</p>
-      <p>{{dog.owner}} - {{dog.city}}</p>
+      <p>{{pic.ownername}}</p>
     </div>
   </div>
 </div>
 
 <!-- Modal -->
+<div ng-list-modal></div>
 
