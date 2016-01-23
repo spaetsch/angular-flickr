@@ -37,31 +37,26 @@
       return year + '-' + month + '-' + day;
     };
 
-    $scope.updatePics = function(){
+    $scope.getPics = function(){
       var baseURL = 'https://api.flickr.com/services/rest/?method=flickr.interestingness.getList&api_key=c122c5b37d7f44cecd205b35066fd584';
       var searchDate = '&date=' + this.convertDate();
       var format = '&per_page=24&format=json&nojsoncallback=1';
 
       var requestURL = baseURL + searchDate + format;
-      console.log('requestURL', requestURL);
+      console.log('getPics sends this requestURL', requestURL);
 
       //GET call using promises instead of callbacks
       $http({ method: 'GET', url: requestURL})
         //success
         .then(function(response) {
-          console.log('in http success in searchjs');
           $scope.pics = myFactory.successFlickr(response);
-          console.log('$scope.pics', $scope.pics);
+          console.log('in searchjs, in GET success, setting local $scope.pics', $scope.pics);
+          myFactory.pics = $scope.pics;
+          console.log('in searchjs, in GET success, setting myFactory.pics to:', myFactory.pics );
         },
         //error
         function() {
           console.log('error');
         });
-
-
     };
-
-
-
-
   });

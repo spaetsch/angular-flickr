@@ -4,7 +4,9 @@ var app = angular.module('intFlickApp');
 angular.module('myFactory',[]);
 
 app.factory('myFactory', function(){
-  var service = {};
+  var service = {
+    pics:[]
+  };
 
   service.buildPicURL = function(data, next){
     var farm = data.photos.photo[next].farm;
@@ -22,14 +24,13 @@ app.factory('myFactory', function(){
   };
 
   service.successFlickr = function(response){
-    console.log('in service successFlickr');
-    console.log('response.data', response.data);
     this.pics = response.data.photos.photo;
-    console.log('this.pics', this.pics);
     //adds image URL to array
     for (var i=0; i < response.data.photos.photo.length; i++){
       this.pics[i].picURL = this.buildPicURL(response.data, i);
     }
+    console.log('in service successFlickr, after for loop,returning this.pics=', this.pics);
+
     return this.pics;
   };
   return service;
