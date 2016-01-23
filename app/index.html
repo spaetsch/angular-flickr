@@ -18,23 +18,20 @@
   <body ng-app="intFlickApp">
     <header class="fluid-container">
       <div class="container" ng-controller="SearchCtrl">
-        <div class="col-md-6">
-            <label for="dateInput">View the most interesting photos on any given date since 2000</label>
-            <input type="date" id="dateInput" name="input" ng-model="searchDate.value" ng-change="getPics()" min="2000-01-01" max="2016-01-21" required />
-            <p>value = {{date.value | date: "yyyy-MM-dd"}}</p>
-
+        <div class="col-md-9">
+            <label for="dateInput">View the most interesting Flickr photos on a given date:</label>
+            <input type="date" id="dateInput" name="input" ng-model="searchDate.value" min="2000-01-01" max="2015-12-31" ng-change="getPics()"  required />
         </div>
-        <div class="col-md-3 col-md-offset-3">
+        <div class="col-md-3">
           <a class="btn btn-default glyphicon glyphicon-th-list" href="#/list" role="button" title="list view"></a>
           <a class="btn btn-default glyphicon glyphicon-th" href="#/grid" role="button" title="grid view"></a>
-          <button type="button" class="btn add-btn">Add New Dog</button>
         </div>
     </div>
   </header>
     <div class="container">
       <div ng-view=""></div>
     </div>
-    <footer>what</footer>
+    <footer></footer>
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->

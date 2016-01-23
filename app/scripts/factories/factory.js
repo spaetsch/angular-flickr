@@ -5,9 +5,32 @@ angular.module('myFactory',[]);
 
 app.factory('myFactory', function(){
   var service = {
-    pics:[]
+    pics:[],
+    searchDate: new Date(2016, 0, 1),
+    baseURL: 'https://api.flickr.com/services/rest/?method=flickr.interestingness.getList&api_key=c122c5b37d7f44cecd205b35066fd584',
+    reqExtras: '&extras=url_z%2C+url_q%2C+owner_name',
+    reqFormat: '&per_page=24&format=json&nojsoncallback=1'
   };
 
+
+
+
+  service.leadingZero = function(num){
+    if (num < 10){
+      var str = '0' + num;
+      return str;
+    } else {
+      return num;
+    }
+  };
+
+  service.convertDate = function(){
+    var year = this.searchDate.getFullYear();
+    var month = this.leadingZero(this.searchDate.getMonth() + 1);
+    var day = this.leadingZero(this.searchDate.getDate());
+
+    return year + '-' + month + '-' + day;
+  };
   service.buildFlickrURL = function(data, next){
     var baseURL = 'https://www.flickr.com/photos/';
     var userID = data.photos.photo[next].owner;

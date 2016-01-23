@@ -1,16 +1,14 @@
 
 <div ng-repeat="pic in pics">
-
   <div class="col-md-3">
-      <div ng-click="$parent.current = $index" data-toggle="modal" data-target="#myModal" class="dog-card overlay">
+      <div ng-click="$parent.current = $index" data-toggle="modal" data-target="#myModal" class="pic-card overlay">
         <img src="{{pic.url_z}}">
-        <div class="dog-caption">
-          <p class="dog-name">{{pic.title}}</p>
-          <p class="dog-owner-loc">{{pic.ownername}} <a href="">on Flickr</a></p>
+        <div class="pic-caption">
+          <p class="pic-name">{{pic.title}}</p>
+          <p class="pic-owner-loc">{{pic.ownername}} <a href="">on Flickr</a></p>
         </div>
       </div>
   </div>
 </div>
-
 <!-- Modal -->
 <div ng-grid-modal></div>

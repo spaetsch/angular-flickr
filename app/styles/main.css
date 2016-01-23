@@ -16,14 +16,7 @@ header .add-btn {
   background-color: #7cbd4f;
   float: right;
 }
-.search-text {
-  width: 60%;
-  display: inline-block;
-}
-.search-icon {
-  background: url(/images/search.png) no-repeat 8px 8px;
-  padding-left: 30px;
-}
+
 footer {
   margin-top: 50px;
   text-align: center;
@@ -32,27 +25,26 @@ footer {
 
 /* grid view */
 
-.dog-card {
-  height: 150px;
+.pic-card {
+  height: 300px;
   border-radius: 5px;
   overflow: hidden;
   position: relative;
   margin-top: 30px;
   box-shadow: 0px 4px 0px 0px rgba(0,0,0,0.25);
 }
-.dog-card:hover,
-.dog-card:focus {
+.pic-card:hover,
+.pic-card:focus {
   box-shadow: 0px 4px 0px 0px rgba(39,159,182,0.75);
 }
-.dog-card img{
-  width: 100%;
+.pic-card img{
   position: absolute;
   margin-top: -25%;
   display: block;
 }
 
 /* adds gradient overlay */
-.dog-card:after {
+.pic-card:after {
   content: '';
   position: absolute;
   left: 0;
@@ -63,40 +55,46 @@ footer {
   background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%);
 }
 
-.dog-caption {
+.pic-caption {
   position: absolute;
   bottom: 0;
   z-index: 2;
   padding-left: 1em;
   padding-bottom: 0.25em;
 }
-.dog-name{
+.pic-name{
   color: #279fb6;
   font-size: 1.25em;
 }
-.dog-caption .dog-name {
+.pic-caption .pic-name {
   margin-bottom: 0;
 }
-.dog-caption .dog-owner-loc {
+.pic-caption .pic-owner-loc {
   color: #c7ccc9;
 }
 
 /* list view */
 
-.dog-list {
+.pic-list {
   border-bottom: 1px solid gray;
   padding: 5px;
 }
 
 /* modal dialog */
 
+@media (min-width: 1200px){
+  .container {
+    width: 75%;
+  }
+}
+
 @media (min-width: 768px){
-  .dog-modal {
+  .pic-modal {
       width: 450px;
   }
 }
 
-.dog-modal-body,
-.dog-modal-title{
+.pic-modal-body,
+.pic-modal-title{
   text-align: center;
 }
