@@ -16,7 +16,7 @@
       'Karma'
     ];
 
-    $scope.date = {
+    $scope.searchDate = {
       value: new Date(2015, 0, 1)
     };
 
@@ -30,9 +30,9 @@
     };
 
     $scope.convertDate = function(){
-      var year = $scope.date.value.getFullYear();
-      var month = this.leadingZero($scope.date.value.getMonth() + 1);
-      var day = this.leadingZero($scope.date.value.getDate());
+      var year = $scope.searchDate.value.getFullYear();
+      var month = this.leadingZero($scope.searchDate.value.getMonth() + 1);
+      var day = this.leadingZero($scope.searchDate.value.getDate());
 
       return year + '-' + month + '-' + day;
     };
@@ -43,16 +43,14 @@
       var format = '&per_page=24&format=json&nojsoncallback=1';
 
       var requestURL = baseURL + searchDate + format;
-      console.log('getPics sends this requestURL', requestURL);
+      console.log('in getPics, requestURL:', requestURL);
 
-      //GET call using promises instead of callbacks
+      //GET call using promises
       $http({ method: 'GET', url: requestURL})
         //success
         .then(function(response) {
           $scope.pics = myFactory.successFlickr(response);
-          console.log('in searchjs, in GET success, setting local $scope.pics', $scope.pics);
           myFactory.pics = $scope.pics;
-          console.log('in searchjs, in GET success, setting myFactory.pics to:', myFactory.pics );
         },
         //error
         function() {

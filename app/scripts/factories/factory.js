@@ -29,7 +29,7 @@ app.factory('myFactory', function(){
     for (var i=0; i < response.data.photos.photo.length; i++){
       this.pics[i].picURL = this.buildPicURL(response.data, i);
     }
-    console.log('in service successFlickr, after for loop,returning this.pics=', this.pics);
+    console.log('in service successFlickr, after for loop, returning this.pics=', this.pics);
 
     return this.pics;
   };

@@ -1,10 +1,10 @@
-<div class="dog-list"  ng-repeat="dog in dogs | filter: filterDogs">
+<div class="dog-list"  ng-repeat="pic in pics">
   <div ng-click="$parent.current = $index" data-toggle="modal" data-target="#myModal"class="row">
     <div class="col-sm-2">
-      <img src="{{dog.image}}">
+      <img src="{{pic.picURL}}">
     </div>
     <div class="col-sm-3">
-      <p class="dog-name">{{dog.name}}</p>
+      <p class="dog-name">{{pic.title}}</p>
       <p>{{dog.owner}} - {{dog.city}}</p>
     </div>
   </div>

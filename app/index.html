@@ -20,7 +20,7 @@
       <div class="container" ng-controller="SearchCtrl">
         <div class="col-md-6">
             <label for="dateInput">View the most interesting photos on any given date since 2000</label>
-            <input type="date" id="dateInput" name="input" ng-model="date.value" ng-change="getPics()" min="2000-01-01" max="2016-01-21"required />
+            <input type="date" id="dateInput" name="input" ng-model="searchDate.value" ng-change="getPics()" min="2000-01-01" max="2016-01-21" required />
             <p>value = {{date.value | date: "yyyy-MM-dd"}}</p>
 
         </div>
