@@ -39,5 +39,10 @@ angular.module('intFlickApp')
         scope.pics = newVal;
       }
     });
-    console.log('end of GridCtrl, scope pics:', $scope.pics);
+  })
+   .directive('ngModal', function() {
+    return {
+      templateUrl: 'views/modal.html'
+    };
   });
+
