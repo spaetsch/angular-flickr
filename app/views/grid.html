@@ -1,11 +1,11 @@
 
 <div ng-repeat="pic in pics">
   <div class="col-md-3">
-      <div ng-click="$parent.current = $index" data-toggle="modal" data-target="#myModal" class="pic-card overlay">
+      <div class="pic-card overlay">
         <img src="{{pic.url_z}}">
         <div class="pic-caption">
-          <p class="pic-name">{{pic.title}}</p>
-          <p class="pic-owner-loc">{{pic.ownername}} <a href="">on Flickr</a></p>
+          <p class="pic-name" ng-click="$parent.current = $index" data-toggle="modal" data-target="#myModal" >{{pic.title}}</p>
+          <p class="pic-owner-loc">{{pic.ownername}} <a href="{{pic.flickrURL}}">view on Flickr</a></p>
         </div>
       </div>
   </div>

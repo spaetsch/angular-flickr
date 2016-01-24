@@ -80,19 +80,45 @@ footer {
   padding: 5px;
 }
 
-/* modal dialog */
+/*modal */
+/*.pic-modal-body {
+  overflow: hidden;
+}*/
+.pic-modal-body img{
+  width:100%;
+}
 
+/* media queries */
+@media (min-width: 400px){
+  .container {
+    width: 100%;
+  }
+  .pic-modal {
+  width: 400px;
+  }
+}
+@media (min-width: 720px){
+  .pic-modal {
+    width: 640px;
+  }
+  .container {
+    width: 75%;
+  }
+}
+@media (min-width: 992px){
+  .container {
+    width: 100%;
+  }
+}
 @media (min-width: 1200px){
   .container {
     width: 75%;
   }
 }
 
-@media (min-width: 768px){
-  .pic-modal {
-      width: 450px;
-  }
-}
+
+
+
 
 .pic-modal-body,
 .pic-modal-title{

@@ -6,15 +6,11 @@ angular.module('myFactory',[]);
 app.factory('myFactory', function(){
   var service = {
     pics:[],
-    searchDate: new Date(2016, 0, 1),
+    searchDate: new Date(2015, 0, 1),
     baseURL: 'https://api.flickr.com/services/rest/?method=flickr.interestingness.getList&api_key=c122c5b37d7f44cecd205b35066fd584',
     reqExtras: '&extras=url_z%2C+url_q%2C+owner_name',
     reqFormat: '&per_page=24&format=json&nojsoncallback=1'
   };
-
-
-
-
   service.leadingZero = function(num){
     if (num < 10){
       var str = '0' + num;
@@ -23,7 +19,6 @@ app.factory('myFactory', function(){
       return num;
     }
   };
-
   service.convertDate = function(){
     var year = this.searchDate.getFullYear();
     var month = this.leadingZero(this.searchDate.getMonth() + 1);
@@ -38,7 +33,6 @@ app.factory('myFactory', function(){
 
     return baseURL + userID + '/' + photoID;
   };
-
   service.successFlickr = function(response){
     this.pics = response.data.photos.photo;
     //adds flickr URL to array
