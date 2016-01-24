@@ -11,9 +11,7 @@ header {
   background-color: white;
   padding: 10px;
 }
-header .add-btn {
-  color: white;
-  background-color: #7cbd4f;
+header .toggle-btn {
   float: right;
 }
 
@@ -26,8 +24,8 @@ footer {
 /* grid view */
 
 .pic-card {
-  height: 300px;
-  border-radius: 5px;
+  height: 175px;
+  border-radius: 7px;
   overflow: hidden;
   position: relative;
   margin-top: 30px;
@@ -38,8 +36,8 @@ footer {
   box-shadow: 0px 4px 0px 0px rgba(39,159,182,0.75);
 }
 .pic-card img{
+  width: 100%;
   position: absolute;
-  margin-top: -25%;
   display: block;
 }
 
@@ -79,13 +77,17 @@ footer {
   border-bottom: 1px solid gray;
   padding: 5px;
 }
-
+.pic-list img {
+  float: right;
+}
 /*modal */
-/*.pic-modal-body {
-  overflow: hidden;
-}*/
+
 .pic-modal-body img{
-  width:100%;
+  width: 100%;
+}
+.pic-modal-body,
+.pic-modal-title{
+  text-align: center;
 }
 
 /* media queries */
@@ -117,10 +119,3 @@ footer {
 }
 
 
-
-
-
-.pic-modal-body,
-.pic-modal-title{
-  text-align: center;
-}

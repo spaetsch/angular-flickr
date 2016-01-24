@@ -6,9 +6,9 @@ angular.module('myFactory',[]);
 app.factory('myFactory', function(){
   var service = {
     pics:[],
-    searchDate: new Date(2015, 0, 1),
+    searchDate: new Date(2015, 7, 1),
     baseURL: 'https://api.flickr.com/services/rest/?method=flickr.interestingness.getList&api_key=c122c5b37d7f44cecd205b35066fd584',
-    reqExtras: '&extras=url_z%2C+url_q%2C+owner_name',
+    reqExtras: '&extras=url_z%2C+url_q%2C+owner_name%2C+tags%2C++views',
     reqFormat: '&per_page=24&format=json&nojsoncallback=1'
   };
   service.leadingZero = function(num){

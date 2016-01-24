@@ -18,13 +18,13 @@
   <body ng-app="intFlickApp">
     <header class="fluid-container">
       <div class="container" ng-controller="SearchCtrl">
-        <div class="col-md-9">
+        <div class="col-md-10">
             <label for="dateInput">View the most interesting Flickr photos on a given date:</label>
             <input type="date" id="dateInput" name="input" ng-model="searchDate.value" min="2000-01-01" max="2015-12-31" ng-change="getPics()"  required />
         </div>
-        <div class="col-md-3">
-          <a class="btn btn-default glyphicon glyphicon-th-list" href="#/list" role="button" title="list view"></a>
-          <a class="btn btn-default glyphicon glyphicon-th" href="#/grid" role="button" title="grid view"></a>
+        <div class="col-md-2">
+          <a class="btn btn-default toggle-btn glyphicon glyphicon-th-list" href="#/list" role="button" title="list view"></a>
+          <a class="btn btn-default toggle-btn glyphicon glyphicon-th" href="#/grid" role="button" title="grid view"></a>
         </div>
     </div>
   </header>
