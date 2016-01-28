@@ -67,6 +67,18 @@ module.exports = function (grunt) {
       }
     },
 
+    // surge deployment
+    surge: {
+      'Interesting Flickr & Angular': {
+        options: {
+          // The path or directory to your compiled project
+          project: 'app/',
+          // The domain or subdomain to deploy to
+          domain: 'dysfunctional-queen.surge.sh'
+        }
+      }
+    },
+
     // The actual grunt server settings
     connect: {
       options: {
@@ -220,7 +232,7 @@ module.exports = function (grunt) {
             }
           }
       }
-    }, 
+    },
 
     // Renames files for browser caching purposes
     filerev: {
@@ -338,7 +350,7 @@ module.exports = function (grunt) {
     ngtemplates: {
       dist: {
         options: {
-          module: 'roverProjApp',
+          module: 'intFlickApp',
           htmlmin: '<%= htmlmin.dist.options %>',
           usemin: 'scripts/scripts.js'
         },
@@ -480,4 +492,11 @@ module.exports = function (grunt) {
     'test',
     'build'
   ]);
+
+  // Load in the grunt-surge plugin
+  grunt.loadNpmTasks('grunt-surge');
+
+  // Add a `grunt deploy` task that runs Surge
+  grunt.registerTask('deploy', ['surge']);
+
 };
