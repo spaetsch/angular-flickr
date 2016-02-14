@@ -21,10 +21,25 @@ footer {
   color: #999999;
 }
 
+/* handing position */
+/* if w > h */
+.landscape {
+  height: 100%;
+}
+
+/* if h > w */
+.portrait {
+  width: 100%;
+}
+
+.square {
+
+}
+
 /* grid view */
 
 .pic-card {
-  height: 175px;
+  height: 300px;
   border-radius: 7px;
   overflow: hidden;
   position: relative;
@@ -36,7 +51,6 @@ footer {
   box-shadow: 0px 4px 0px 0px rgba(39,159,182,0.75);
 }
 .pic-card img{
-  width: 100%;
   position: absolute;
   display: block;
 }
