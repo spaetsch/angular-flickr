@@ -19,21 +19,14 @@ angular.module('intFlickApp')
     var requestURL = myFactory.baseURL + reqDate + myFactory.reqExtras + myFactory.reqFormat;
 
     $scope.findOrientation = function(pic){
-      //the longest side is height
       var height = parseInt(pic.height_z, 10);
       var width = parseInt(pic.width_z, 10);
 
-      console.log("width", width);
-      console.log("height", height);
-
       if ( height === width ){
-        console.log('square');
         return 'square';
       } else if (height > width){
-        console.log('portrait');
         return 'portrait';
       } else {
-        console.log('landscape');
         return 'landscape';
       }
     };
